@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.music-container {
+  padding-left: 14rem;
+}
+
+/* sidebar */
+.heading p {
+  color: rgba(255, 255, 255, 1);
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  text-align: left;
+}
+.heading {
+  display: flex;
+  gap: 2rem;
+}
+
+.search-bar {
+  position: relative;
+}
+.search-bar img {
+  position: absolute;
+  top: 3px;
+  left: 22rem;
+  bottom: 15px;
+  width: 32px;
+  height: 32px;
+  padding: 6.33px;
+  gap: 0px;
+  opacity: 0.4px;
+}
+.search-bar input {
+  width: 375px;
+  height: Hug (48px);
+  top: 104px;
+  left: 296px;
+  padding: 16px;
+  font-size: 18px;
+  gap: 0px;
+  border: none;
+  border-radius: 8px;
+  justify: space-between;
+  opacity: 0px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Song component */
+
+.song{
+  display: flex;
+}
+.song-details p {
+  color: rgba(255, 255, 255, 1);
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+}
+.song-details {
+  display: flex;
+  justify-content: space-evenly;
+}
+.song {
+  width: 26vw;
+}
+.song-list {
+  margin-top: 1rem;
+}
+
+.song-img img{
+  width: 48px;
+  height: 48px;
+  gap: 0px;
+  border-radius: 56px;
+  opacity: 0px;
+}
+
