@@ -9,11 +9,37 @@ body {
 
 .music-container {
   padding-left: 14rem;
+  display: flex;
+  gap: 15rem;
+  justify-content: center;
 }
 
-/* sidebar */
+.logo {
+  width: 133.41px;
+  height: 40px;
+  position: relative;
+  top: 32px;
+  left: 32px;
+  padding: 0.47px 0.94px 0.12px 0.94px;
+  gap: 0px;
+  opacity: 0px;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 432px;
+  height: 856px;
+  position: relative;
+  bottom: 1rem;
+  left: 60px;
+  gap: 0px;
+  opacity: 0px;
+}
+
 .heading p {
-  color: rgba(255, 255, 255, 1);
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: 0.3s;
   font-family: "Inter", sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -22,17 +48,33 @@ body {
 }
 .heading {
   display: flex;
-  gap: 2rem;
+  width: Hug (258px) px;
+  height: Hug (32px) px;
+  position: relative;
+  bottom: 0.5rem;
+  left: 1.1rem;
+  gap: 40px;
+  opacity: 0px;
+}
+
+#toggle-song:hover{
+  color: rgba(255, 255, 255, 1);
+}
+#toggle-top-song:hover{
+  color: rgba(255, 255, 255, 1);
+}
+.active{
+  color: rgba(255, 255, 255, 1);
 }
 
 .search-bar {
   position: relative;
+  padding-left: 16px;
 }
 .search-bar img {
   position: absolute;
-  top: 3px;
-  left: 22rem;
-  bottom: 15px;
+  right: 1rem;
+  top: 4px;
   width: 32px;
   height: 32px;
   padding: 6.33px;
@@ -41,6 +83,7 @@ body {
 }
 .search-bar input {
   width: 375px;
+  max-width: Fixed 400px;
   height: Hug (48px);
   top: 104px;
   left: 296px;
@@ -54,32 +97,86 @@ body {
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* Song component */
+.search-bar input[type='text']{
+  color: rgba(255, 255, 255, 1);
+}
 
-.song{
+/* Song component */
+.song {
   display: flex;
+  width: 27vw;
+  max-width: 28vw;
+  gap: 1rem;
 }
 .song-details p {
   color: rgba(255, 255, 255, 1);
   font-family: "Inter", sans-serif;
   font-size: 18px;
+  width: 5vw;
 }
+
+#name {
+  width: 8rem;
+}
+
+#artist {
+  font-size: 14px;
+  opacity: 0.6;
+  position: relative;
+  top: -0.75rem;
+  width: 7rem;
+}
+
 .song-details {
   display: flex;
-  justify-content: space-evenly;
+  width: 25vw;
+  justify-content: space-between;
 }
+
 .song {
-  width: 26vw;
+  height: 5rem;
+  padding-left: 16px;
+}
+.song:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
 }
 .song-list {
   margin-top: 1rem;
 }
 
-.song-img img{
+.song-img img {
   width: 48px;
   height: 48px;
   gap: 0px;
+  margin-top: 15px;
   border-radius: 56px;
   opacity: 0px;
 }
 
+/* Player */
+.player {
+  color: white;
+  font-family: 'Inter',sans-serif;
+  width: 480px;
+  height: 692.24px;
+  margin-top: 3.75rem;
+}
+
+.player-img img {
+  width: 480px;
+  height: 480px;
+  border-radius: 8px;
+}
+
+#player-name{
+  margin: 0;
+  font-weight: 700;
+  font-size: 32px;
+}
+
+#player-artist{
+  font-size: 16px;
+  font-weight: 400;
+  opacity: 0.6;
+}
