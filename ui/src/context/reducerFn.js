@@ -20,7 +20,7 @@ export const songReducerFn = (state,action)=>{
         case 'PAUSE_SONG':
             return{
                 ...state,
-                isActive : false,
+                isActive : !state.isActive,
             }
     }
 }

@@ -8,7 +8,9 @@ import { useMemo } from "react";
 
 export const SideBar = () => {
   const {state,dispatch} = useSong();
+  
   const {topSong,song} = state;
+
   const [isTopSong, setIsTopSong] = useState(false);
   const [searchValue,setSearchValue] = useState();
  
