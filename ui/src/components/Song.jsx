@@ -6,7 +6,7 @@ export const Song = ({ song }) => {
   const { dispatch,state : {activeSong} } = useSong();
   const [duration,setDuration] = useState(null);
   
-  const isActive =  song.xid === activeSong.id;
+  const isActive =  song.id === activeSong.id;
 
   console.log(activeSong);
 
