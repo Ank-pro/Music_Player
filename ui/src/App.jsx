@@ -5,10 +5,18 @@ import './App.css'
 import { SideBar } from './components/Sidebar'
 import { Player } from './components/Player'
 import logo from './assets/Logo.png'
+import { useSong } from './context/songContext'
+import { useEffect } from 'react'
 
 function App() {
-  
-  
+  const {state} = useSong();
+  const {background} = state;
+
+  useEffect(()=>{
+    document.body.style.background = background;
+
+    console.log(background)
+  },[background])
 
   return (
     <div className='container'>

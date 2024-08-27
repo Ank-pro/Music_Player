@@ -4,8 +4,10 @@ import { songReducerFn } from "./reducerFn";
 const initialState = {
     song : [],
     topSong : [],
+    isTopTrack : false,
     activeSong : {},
     isActive : false,
+    background : 'rgb(0, 0, 0, 1)'
 }
 const SongContext = createContext(initialState);
 

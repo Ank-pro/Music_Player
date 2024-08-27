@@ -5,8 +5,10 @@ import { useState } from "react";
 export const Song = ({ song }) => {
   const { dispatch,state : {activeSong} } = useSong();
   const [duration,setDuration] = useState(null);
+  
+  const isActive =  song.xid === activeSong.id;
 
-  const isExist = activeSong.id === song.id;
+  console.log(activeSong);
 
   useEffect(() => {
     const audio = new Audio(song.url);
@@ -26,7 +28,7 @@ export const Song = ({ song }) => {
   };
 
   return (
-    <div className={isExist ? "song active-song" : "song"} onClick={handleSong}>
+    <div className={isActive ? "song active-song" : "song"} onClick={handleSong}>
       <div className="song-img">
         <img src={song.img_url} alt="image" />
       </div>

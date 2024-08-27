@@ -11,29 +11,46 @@ import { useEffect } from "react";
 export const Player = () => {
   const { state, dispatch } = useSong();
   const { activeSong, isActive } = state;
-  const [progress, setProgress] = useState(10);
+  const [progress, setProgress] = useState(0);
   const audioRef = useRef(null);
 
-  console.log(isActive);
+  // console.log(isActive);
 
   useEffect(() => {
+    const audio = audioRef.current;
+
     if (isActive) {
-      audioRef.current.play();
+      audio.play();
+      audio.addEventListener("timeupdate", () => {
+        const duration = audio.duration;
+        const currentTime = audio.currentTime;
+        const percentage = ((currentTime / duration) * 100).toFixed(2);
+        setProgress(percentage);
+      });
     } else {
-      audioRef.current.pause();
+      audio.pause();
     }
+
   }, [activeSong, isActive]);
 
+
   const handleSlider = (e) => {
-    const newValue = e.target.value;
-    setProgress(newValue);
-    // Update audio playback position if desired
-    audioRef.current.currentTime = (newValue / 100) * audioRef.current.duration;
+    const newTime = e.target.value;
+    setProgress(newTime);
+    audioRef.current.currentTime = (audioRef.current.duration / 100) * newTime;
   };
 
   const handlePlay = () => {
     dispatch({ type: "PAUSE_SONG" });
   };
+
+  const handlePrev = ()=>{
+    dispatch({type : 'PREV_SONG'})
+  }
+
+  const handleNext = ()=>{
+    dispatch({type : 'NEXT_SONG'})
+  }
 
   return (
     <div className="player">
@@ -47,12 +64,12 @@ export const Player = () => {
       </div>
 
       <div className="music-cta">
-        <div className="seeker"></div>
+        <div className="seeker" style={{ width: `${progress}%` }}></div>
         <input
           type="range"
           className="range"
           min="0"
-          max="100"
+          max="99"
           value={progress}
           onChange={handleSlider}
         />
@@ -61,14 +78,14 @@ export const Player = () => {
             <img src={dotImg} alt="dots" />
           </div>
           <div className="action">
-            <img src={prevImg} alt="" className="change-song" />
+            <img src={prevImg} alt="" className="change-song" onClick={handlePrev}/>
             <img
               src={!isActive ? pauseImg : playImg}
               alt=""
               id="play"
               onClick={handlePlay}
             />
-            <img src={nextImg} alt="" className="change-song" />
+            <img src={nextImg} alt="" className="change-song" onClick={handleNext}/>
           </div>
           <div className="vol">
             <img src={volImg} alt="" />

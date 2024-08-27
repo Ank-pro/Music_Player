@@ -1,38 +1,59 @@
+
+
 body {
   margin: 0;
   padding: 0;
+  height: 100vh;
+  overflow-x: hidden;
 }
 
-.container {
-  background-color: rgba(0, 0, 0, 1);
-}
+/* Color - linear-gradient(to right, #381b02, #302002) 
+  August - linear-gradient(to right, #07000e, #27021f)
+  Fallen Leave - linear-gradient(to right, #0e0624, #050016)
+  November - linear-gradient(to right, #48190a, #091e28)
+  uplift - linear-gradient(to right, #070300, #331a01)
+  first torch - linear-gradient(to right, #3a3a3a, #2a210d)
+  sunflowers - linear-gradient(to right, #23010b, #3e031f)
+  illusion feel - linear-gradient(to right, #03192a, #3e031f)
+*/
 
 .music-container {
   padding-left: 14rem;
   display: flex;
-  gap: 15rem;
+  gap: 10rem;
+  margin-right: 2rem;
   justify-content: center;
 }
 
 .logo {
   width: 133.41px;
+  display: block;
+  border: 1px solid red;
   height: 40px;
   position: relative;
   top: 32px;
   left: 32px;
   padding: 0.47px 0.94px 0.12px 0.94px;
-  gap: 0px;
-  opacity: 0px;
 }
 
 /* Sidebar */
 .sidebar {
+  display: flex;
+  flex-direction: column;
   width: 432px;
   height: 856px;
   position: relative;
   bottom: 1rem;
-  left: 60px;
-  gap: 0px;
+}
+
+.heading {
+  display: flex;
+  width: Hug (258px) px;
+  height: Hug (32px) px;
+  position: relative;
+  bottom: 0.5rem;
+  left: 1.1rem;
+  gap: 40px;
   opacity: 0px;
 }
 
@@ -46,73 +67,77 @@ body {
   line-height: 32px;
   text-align: left;
 }
-.heading {
-  display: flex;
-  width: Hug (258px) px;
-  height: Hug (32px) px;
-  position: relative;
-  bottom: 0.5rem;
-  left: 1.1rem;
-  gap: 40px;
-  opacity: 0px;
-}
 
-#toggle-song:hover{
+#toggle-song:hover {
   color: rgba(255, 255, 255, 1);
 }
-#toggle-top-song:hover{
+#toggle-top-song:hover {
   color: rgba(255, 255, 255, 1);
 }
-.active{
+.active {
   color: rgba(255, 255, 255, 1);
 }
 
 .search-bar {
   position: relative;
+  width: 100%;
   padding-left: 16px;
 }
 .search-bar img {
   position: absolute;
-  right: 1rem;
+  right: 2rem;
   top: 4px;
   width: 32px;
   height: 32px;
   padding: 6.33px;
-  gap: 0px;
-  opacity: 0.4px;
+  opacity: 0.4;
 }
 .search-bar input {
   width: 375px;
-  max-width: Fixed 400px;
-  height: Hug (48px);
-  top: 104px;
-  left: 296px;
   padding: 16px;
   font-size: 18px;
-  gap: 0px;
   border: none;
   border-radius: 8px;
-  justify: space-between;
-  opacity: 0px;
   background: rgba(255, 255, 255, 0.08);
 }
 
-.search-bar input[type='text']{
+.search-bar input[type="text"] {
   color: rgba(255, 255, 255, 1);
 }
 
 /* Song component */
 .song {
   display: flex;
-  width: 27vw;
-  max-width: 28vw;
+  width: 100%;
   gap: 1rem;
+  transition: 0.3s ease;
 }
+
+.song-details {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
 .song-details p {
   color: rgba(255, 255, 255, 1);
   font-family: "Inter", sans-serif;
   font-size: 18px;
   width: 5vw;
+}
+
+.song-img{
+  border-radius: 56px;
+  width: 48px;
+  height: 48px;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.song-img img {
+  width: 48px;
+  height: 100%;
+  border-radius: 56px;
 }
 
 #name {
@@ -126,20 +151,16 @@ body {
   top: -0.75rem;
   width: 7rem;
 }
-
-.song-details {
-  display: flex;
-  width: 25vw;
-  justify-content: space-between;
+#duration {
+  opacity: 0.6;
+  font-size: 18px;
+  max-width: 3rem;
+  max-height: 2rem;
+  margin-top: 8%;
 }
 
-.song {
-  height: 5rem;
-  padding-left: 16px;
-  margin-top: 5px;
-  transition: 0.5s;
-}
-.active-song{
+
+.active-song {
   background-color: rgba(255, 255, 255, 0.08);
   border-radius: 8px;
 }
@@ -151,50 +172,56 @@ body {
   margin-top: 1.5rem;
 }
 
-.song-img img {
-  width: 48px;
-  height: 48px;
-  gap: 0px;
-  margin-top: 15px;
-  border-radius: 56px;
-  opacity: 0px;
-}
 
 /* Player */
 .player {
   color: white;
-  font-family: 'Inter',sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: "Inter", sans-serif;
+  width: 100%; 
   max-width: 480px;
-  height: 692.24px;
-  margin-top: 3.75rem;
+  height: fit-content;
+}
+
+.player-heading {
+  display: flex;
+  flex-direction: column;
+}
+
+.player-img {
+  width: 100%;
+  max-width: 480px;
+  height: 480px;
 }
 
 .player-img img {
-  width: 480px;
-  height: 480px;
+  width: 100%;
+  height: 100%;
   border-radius: 8px;
 }
 
-#player-name{
+#player-name {
   margin: 0;
   font-weight: 700;
-  font-size: 32px;
+  font-size: 2.5vw;
 }
 
-#player-artist{
-  font-size: 16px;
+#player-artist {
+  font-size: 1.25vw;
   font-weight: 400;
   opacity: 0.6;
 }
 
-.music-cta{
+.music-cta {
   margin-top: 1rem;
+  display: inline;
   position: relative;
 }
 
-.range{
+.range {
   -webkit-appearance: none;
-  max-width: 100%;
   width: 100%;
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.2);
@@ -203,63 +230,92 @@ body {
   height: 6px;
 }
 
- .range::-webkit-slider-thumb{
+.range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 5px;
-  height: 6px;
-  background: #4CAF50;
-  border-radius: 16px;
+  width: 15px;
+  height: 15px;
+  background: #08e10f;
+  border-radius: 50%;
+  opacity: 0;
   cursor: pointer;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
 
-} 
-
-.controllers{
+.controllers {
   display: flex;
   justify-content: space-between;
   margin-top: 2rem;
   width: 100%;
- 
 }
-.action{
+.action {
   display: flex;
   max-width: 100%;
   gap: 17px;
 }
 
-.change-song{
+.change-song {
   width: 32px;
   height: 32px;
   padding: 10px;
   cursor: pointer;
 }
 
-#play{
+#play {
   width: 48px;
   height: 48px;
   cursor: pointer;
+}
+
+.dots img {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+}
+
+.vol img {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+}
+.seeker {
+  border: 3px solid white;
+  border-radius: 6px;
+  position: absolute;
+  top: 10px;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .music-container {
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0;
+    margin-right: 0;
+  }
+
+  .sidebar {
+    display: none; /* Hide sidebar on smaller screens */
+  }
+
+  .player {
+    width: 90%;
+    margin-top: 1rem;
+  }
+
+  .player-img img {
+    width: 100%;
+    height: auto;
+  }
+
+  .heading, .search-bar, .song-list {
+    display: none; /* Hide these elements on smaller screens */
+  }
+
+}
+
+
+@media max-width {
   
 }
-#play:hover{
-
-}
-
-.dots img{
-  width: 48px;
-  height: 48px;
-  cursor: pointer;
-}
-
-.vol img{
-  width: 48px;
-  height: 48px;
-  cursor: pointer;
-}
-.seeker{
-  width: 100%;
-  border: 2px solid white;
-  position: absolute;
-  top: 5px;
-}
-
