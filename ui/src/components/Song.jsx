@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useSong } from "../../context/songContext";
+import { useSong } from "../context/songContext";
 import { useState } from "react";
 
 export const Song = ({ song }) => {

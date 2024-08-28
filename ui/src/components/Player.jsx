@@ -1,13 +1,13 @@
 import { useState, useRef } from "react";
-import { useSong } from "../../context/songContext";
-import dotImg from "../../assets/dots.png";
-import playImg from "../../assets/pause.png";
-import pauseImg from "../../assets/play.png";
-import prevImg from "../../assets/prev.png";
-import nextImg from "../../assets/next.png";
-import volImg from "../../assets/volume.png";
+import { useSong } from "../context/songContext";
+import dotImg from "../assets/dots.png";
+import playImg from "../assets/pause.png";
+import pauseImg from "../assets/play.png";
+import prevImg from "../assets/prev.png";
+import nextImg from "../assets/next.png";
+import volImg from "../assets/volume.png";
 import { useEffect } from "react";
-import fallbackImg from '../../assets/fallback.jpg'
+import fallbackImg from '../assets/fallback.jpg'
 
 
 export const Player = () => {
