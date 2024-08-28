@@ -7,12 +7,12 @@ import { useState } from "react";
 import { useMemo } from "react";
 import { colors } from "../colors";
 
-export const SideBar = () => {
+export const SideBar = ({show}) => {
   const { state, dispatch } = useSong();
-  const { topSong, song,isTopTrack ,background} = state;
+  const { topSong, song,isTopTrack} = state;
 
   const [searchValue, setSearchValue] = useState();
-
+  const [activeTrack,setIsActiveTrack] = useState(false);
   useEffect(() => {
     async function getSongData() {
       try {
@@ -56,12 +56,13 @@ export const SideBar = () => {
   }, [searchValue, topSong, song, isTopTrack]);
 
   return (
-    <div className="sidebar">
+    
+    <div className={!show ? "sidebar" : "sidebar none"}>
       <div className="heading">
-        <p id="toggle-song" onClick={() => dispatch({type : 'TOP_TRACK',payload : false})}>
+        <p className={!activeTrack ? "toggle-song active-track" : "toggle-song"} onClick={() => {setIsActiveTrack(false); dispatch({type : 'TOP_TRACK',payload : false})}}>
           For You
         </p>
-        <p id="toggle-top-song" onClick={() => dispatch({type : 'TOP_TRACK', payload : true})}>
+        <p  className={!activeTrack ? "toggle-top-song" : "toggle-song active-track"} onClick={() => {setIsActiveTrack(true);dispatch({type : 'TOP_TRACK', payload : true})}}>
           Top Tracks
         </p>
       </div>
@@ -71,7 +72,7 @@ export const SideBar = () => {
           placeholder="Search Song, Artist"
           onChange={handleSearch}
         />
-        <img src={searchImg} alt="search-logo" />
+        <img id="search-img" src={searchImg} alt="search-logo" />
       </div>
       <div className="song-list">
         {filteredSongs.map((song) => {
@@ -79,5 +80,6 @@ export const SideBar = () => {
         })}
       </div>
     </div>
+
   );
 };

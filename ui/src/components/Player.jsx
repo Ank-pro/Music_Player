@@ -7,12 +7,14 @@ import prevImg from "../assets/prev.png";
 import nextImg from "../assets/next.png";
 import volImg from "../assets/volume.png";
 import { useEffect } from "react";
+import fallbackImg from '../assets/fallback.jpg'
 
 export const Player = () => {
   const { state, dispatch } = useSong();
   const { activeSong, isActive } = state;
   const [progress, setProgress] = useState(0);
   const audioRef = useRef(null);
+
 
   // console.log(isActive);
 
@@ -52,6 +54,7 @@ export const Player = () => {
     dispatch({type : 'NEXT_SONG'})
   }
 
+
   return (
     <div className="player">
       <div className="player-heading">
@@ -60,7 +63,7 @@ export const Player = () => {
       </div>
 
       <div className="player-img">
-        <img src={activeSong.img_url} alt="player-image" />
+        <img src={activeSong.url ? activeSong.img_url : fallbackImg} alt="player-image"/>
       </div>
 
       <div className="music-cta">
@@ -78,14 +81,15 @@ export const Player = () => {
             <img src={dotImg} alt="dots" />
           </div>
           <div className="action">
-            <img src={prevImg} alt="" className="change-song" onClick={handlePrev}/>
+            <img src={prevImg} alt="" id="rev" className="change-song" onClick={handlePrev}/>
             <img
               src={!isActive ? pauseImg : playImg}
               alt=""
               id="play"
               onClick={handlePlay}
+      
             />
-            <img src={nextImg} alt="" className="change-song" onClick={handleNext}/>
+            <img src={nextImg} alt="" id="next" className="change-song" onClick={handleNext}/>
           </div>
           <div className="vol">
             <img src={volImg} alt="" />
