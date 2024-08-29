@@ -17,12 +17,12 @@ export const SideBar = ({show}) => {
     async function getSongData() {
       try {
         const songData = await axios.get(
-          "http://cms.samespace.com/items/songs"
+          "https://cms.samespace.com/items/songs"
         );
         const { data } = songData.data;
 
         const songWithImg = data.map((song,index) => {
-          const img_url = `http://cms.samespace.com/assets/${song.cover}`;
+          const img_url = `https://cms.samespace.com/assets/${song.cover}`;
           return {
             ...song,
             img_url: img_url,
