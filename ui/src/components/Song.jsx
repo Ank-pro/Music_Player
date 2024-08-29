@@ -1,10 +1,13 @@
 import { useEffect } from "react";
 import { useSong } from "../context/songContext";
 import { useState } from "react";
+import {LazyLoadImage} from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export const Song = ({ song }) => {
   const { dispatch,state : {activeSong} } = useSong();
   const [duration,setDuration] = useState(null);
+  const [imageLoaded, setImageLoaded] = useState(false);
   
   const isActive =  song.id === activeSong.id;
 
@@ -30,7 +33,13 @@ export const Song = ({ song }) => {
   return (
     <div className={isActive ? "song active-song" : "song"} onClick={handleSong}>
       <div className="song-img">
-        <img src={song.img_url} alt="image" />
+      <LazyLoadImage
+          src={song.img_url}
+          alt="image"
+          effect="blur"
+          afterLoad={() => setImageLoaded(true)}
+          className={imageLoaded ? "" : "blur"}
+        />
       </div>
       <div className="song-details">
         <div className="song-name">
