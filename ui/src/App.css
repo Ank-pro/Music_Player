@@ -212,7 +212,6 @@ body {
 
 .name{
   height: 0.75rem;
-  max-width: 100%;
   border-radius: 5px;
   background-color: rgb(169, 138, 138);
 }
@@ -446,7 +445,7 @@ body {
 
   .song-img{
     width: 15vw;
-    height: 7vh;
+    height: 6vh;
     padding-bottom: 13px;
   }
 
@@ -466,6 +465,25 @@ body {
   }
   #duration{
     font-size: 13px;
+  }
+  .shimmer-img{
+    background-color: rgb(175, 138, 138);
+    width: 15vw;
+    max-height: 9vw;
+    padding-bottom: 13px;
+  }
+  
+  .name{
+    height: 0.75rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+    background-color: rgb(169, 138, 138);
+  }
+  .artist{
+    height: 0.65rem;
+    max-width: 80%;
+    border-radius: 5px;
+    background-color: rgb(190, 140, 140);
   }
 }
 
@@ -582,7 +600,7 @@ body {
 
 
   .song-img{
-    width: 11vw;
+    width: 9vw;
     height: 6vh;
     padding-bottom: 13px;
   }
@@ -602,6 +620,25 @@ body {
   }
   #duration{
     font-size: 14px;
+  }
+  .shimmer-img{
+    background-color: rgb(175, 138, 138);
+    width: 13vw;
+    max-height: 8vw;
+    padding-bottom: 13px;
+  }
+  
+  .name{
+    height: 0.75rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+    background-color: rgb(169, 138, 138);
+  }
+  .artist{
+    height: 0.65rem;
+    max-width: 80%;
+    border-radius: 5px;
+    background-color: rgb(190, 140, 140);
   }
 
 
@@ -696,8 +733,8 @@ body {
     width: 40vw;
   }
   .song-img{
-    width: 7.75vw;
-    height: 7vh;
+    min-width: 8vw;
+    min-height: 6vh;
     padding-bottom: 13px;
   }
 
@@ -716,6 +753,26 @@ body {
   }
   #duration{
     font-size: 13px;
+  }
+
+  .shimmer-img{
+    background-color: rgb(175, 138, 138);
+    width: 15vw;
+    max-height: 9vw;
+    padding-bottom: 13px;
+  }
+  
+  .name{
+    height: 0.75rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+    background-color: rgb(169, 138, 138);
+  }
+  .artist{
+    height: 0.65rem;
+    max-width: 80%;
+    border-radius: 5px;
+    background-color: rgb(190, 140, 140);
   }
 
 }
