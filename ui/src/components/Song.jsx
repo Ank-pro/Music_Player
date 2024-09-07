@@ -1,43 +1,55 @@
 import { useEffect } from "react";
 import { useSong } from "../context/songContext";
 import { useState } from "react";
-import {LazyLoadImage} from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import { SongShimmer } from "./SongShimmer";
 
 export const Song = ({ song }) => {
-  const { dispatch,state : {activeSong} } = useSong();
-  const [duration,setDuration] = useState(null);
+  const {
+    dispatch,
+    state: { activeSong },
+  } = useSong();
+  const [duration, setDuration] = useState(null);
   const [imageLoaded, setImageLoaded] = useState(false);
-  
-  const isActive =  song.id === activeSong.id;
+  const [isLoading, setIsLoading] = useState(true);
 
-  console.log(activeSong);
+  const isActive = song.id === activeSong.id;
 
   useEffect(() => {
     const audio = new Audio(song.url);
 
-    audio.addEventListener('loadedmetadata',()=>{
-        const mins = Math.floor(audio.duration / 60);
-        const secs = Math.floor(audio.duration % 60);
-        setDuration(`${mins}:${secs}`);
-    })
+    audio.addEventListener("loadedmetadata", () => {
+      const mins = Math.floor(audio.duration / 60);
+      const secs = Math.floor(audio.duration % 60);
+      setDuration(`${mins}:${secs}`);
+      setIsLoading(false);
+    });
 
-    return ()=>{audio.removeEventListener('loadedmetadata',()=>{})}
-
+    return () => {
+      audio.removeEventListener("loadedmetadata", () => {});
+    };
   }, [song.url]);
 
   const handleSong = () => {
     dispatch({ type: "PLAY_SONG", payload: song });
   };
 
+  if (isLoading) {
+    return <SongShimmer />;
+  }
+
   return (
-    <div className={isActive ? "song active-song" : "song"} onClick={handleSong}>
+    <div
+      className={isActive ? "song active-song" : "song"}
+      onClick={handleSong}
+    >
       <div className="song-img">
-      <LazyLoadImage
+        <LazyLoadImage
           src={song.img_url}
           alt="image"
           effect="blur"
-          afterLoad={() => setImageLoaded(true)}
+          onLoad={() => setImageLoaded(true)}
           className={imageLoaded ? "" : "blur"}
         />
       </div>

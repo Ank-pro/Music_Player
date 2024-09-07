@@ -77,13 +77,8 @@ body {
 }
 
 .heading {
-  
-  
-  
   text-align: left;
 }
-
-
 
 .toggle-song:hover {
   color: rgba(255, 255, 255, 1);
@@ -137,6 +132,9 @@ body {
 }
 
 /* Song component */
+
+
+
 .song {
   display: flex;
   width: 100%;
@@ -208,6 +206,22 @@ body {
   margin-top: 1.5rem;
 }
 
+.shimmer-img{
+  background-color: rgb(175, 138, 138);
+}
+
+.name{
+  height: 0.75rem;
+  max-width: 100%;
+  border-radius: 5px;
+  background-color: rgb(169, 138, 138);
+}
+.artist{
+  height: 0.65rem;
+  max-width: 80%;
+  border-radius: 5px;
+  background-color: rgb(190, 140, 140);
+}
 
 /* Player */
 .player {

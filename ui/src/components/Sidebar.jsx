@@ -6,19 +6,22 @@ import { useSong } from "../context/songContext";
 import { useState } from "react";
 import { useMemo } from "react";
 import { colors } from "../colors";
+import { SongShimmer } from "./SongShimmer";
 
 export const SideBar = ({show}) => {
   const { state, dispatch } = useSong();
   const { topSong, song,isTopTrack} = state;
-
   const [searchValue, setSearchValue] = useState();
   const [activeTrack,setIsActiveTrack] = useState(false);
+
   useEffect(() => {
     async function getSongData() {
       try {
         const songData = await axios.get(
           "https://cms.samespace.com/items/songs"
         );
+        
+        console.log(songData)
         const { data } = songData.data;
 
         const songWithImg = data.map((song,index) => {
