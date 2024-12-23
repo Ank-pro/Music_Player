@@ -30,7 +30,7 @@ function App() {
     <div className='container'>
       <div className="logo">
         <img src={logo} alt="logo" id='main-img'/>
-        <img src={profileImg} alt="profile" id='profile'/>
+        {/* <img src={profileImg} alt="profile" id='profile'/> */}
       </div>
       <div className="menu" onClick={handleMenu}>
         <MenuIcon sx={{
